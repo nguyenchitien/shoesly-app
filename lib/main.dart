@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shoesly/themes/app_theme.dart';
 
 void main() {
   runApp(const ShoeslyApp());
@@ -20,6 +21,7 @@ class ShoeslyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shoesly App',
       debugShowCheckedModeBanner: false,
+      theme: kLightTheme,
       home: const Scaffold(),
     );
   }
