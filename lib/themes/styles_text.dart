@@ -102,6 +102,6 @@ class StylesText {
     fontWeight: FontWeight.w400,
     fontSize: 12,
     fontFamily: FontFamily.openSans,
-    height: 2,
+    height: 1.8,
   );
 }

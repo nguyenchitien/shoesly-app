@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/widget/custom_button_widget.dart';
-import 'package:shoesly/module/onboard/models/slider_item.dart';
-import 'package:shoesly/module/onboard/widgets/slider_item_widget.dart';
+import 'package:shoesly/modules/onboard/models/slider_item.dart';
+import 'package:shoesly/modules/onboard/widgets/slider_item_widget.dart';
 import 'package:shoesly/themes/app_colors.dart';
 import 'package:shoesly/utils/ui_data.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
