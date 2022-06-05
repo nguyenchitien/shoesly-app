@@ -67,7 +67,7 @@ class StylesText {
     fontWeight: FontWeight.w500,
     fontSize: 12,
     fontFamily: FontFamily.openSans,
-    height: 1.2,
+    height: 1.3,
   );
 
   static const headline200 = TextStyle(
@@ -81,27 +81,27 @@ class StylesText {
     fontWeight: FontWeight.w500,
     fontSize: 10,
     fontFamily: FontFamily.openSans,
-    height: 1.2,
+    height: 1.6,
   );
 
   static const bodyText300 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16,
     fontFamily: FontFamily.openSans,
-    height: 1.2,
+    height: 1.5,
   );
 
   static const bodyText200 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 14,
     fontFamily: FontFamily.openSans,
-    height: 1.2,
+    height: 1.7,
   );
 
   static const bodyText100 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 12,
     fontFamily: FontFamily.openSans,
-    height: 1.2,
+    height: 2,
   );
 }

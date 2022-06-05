@@ -73,4 +73,6 @@ class AppColors {
   static const secondary300 = Color(0xFFFBBE90);
   static const secondary200 = Color(0xFFFDD9B5);
   static const secondary100 = Color(0xFFFEEEDA);
+
+  static const stepProgressColor = Color(0xFF4874E0);
 }

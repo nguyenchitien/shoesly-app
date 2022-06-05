@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shoesly/module/onboard/page/onboard_page.dart';
 import 'package:shoesly/themes/app_theme.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class ShoeslyApp extends StatelessWidget {
       title: 'Shoesly App',
       debugShowCheckedModeBanner: false,
       theme: kLightTheme,
-      home: const Scaffold(),
+      home: const OnBoardPage(),
     );
   }
 }
