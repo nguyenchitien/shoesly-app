@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/widget/custom_button_widget.dart';
+import 'package:shoesly/modules/authen/utils/AppStateMixin.dart';
 import 'package:shoesly/modules/onboard/models/slider_item.dart';
 import 'package:shoesly/modules/onboard/widgets/slider_item_widget.dart';
 import 'package:shoesly/themes/app_colors.dart';
@@ -13,7 +14,7 @@ class OnBoardPage extends StatefulWidget {
   State<OnBoardPage> createState() => _OnBoardPageState();
 }
 
-class _OnBoardPageState extends State<OnBoardPage> {
+class _OnBoardPageState extends State<OnBoardPage> with AppStateMixin {
   static const sliderItems = [
     SliderItem(
       UIData.onboardIcon01,
@@ -32,13 +33,8 @@ class _OnBoardPageState extends State<OnBoardPage> {
     ),
   ];
 
-  final PageController pageController = PageController();
+  late final PageController pageController = PageController();
   late var currentPage = 1;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +82,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                   children: [
                     CustomButtonWidget(
                       title: "Get started",
-                      onPressed: () {},
+                      onPressed: notifyFirstLauncherApp,
                     ),
                     const SizedBox(height: 20),
                     Row(
@@ -126,5 +122,10 @@ class _OnBoardPageState extends State<OnBoardPage> {
         ),
       ),
     );
+  }
+
+  void notifyFirstLauncherApp() async {
+    print("notifyFirstLauncherApp");
+    await appStateBloc.notifyFirstLauncherApp();
   }
 }

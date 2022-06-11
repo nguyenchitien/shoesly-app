@@ -56,10 +56,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
     super.initState();
 
     focusNode = widget.focusNode ?? FocusNode();
+    focusNode.addListener(handleFocusTextField);
   }
 
   @override
   void dispose() {
+    focusNode.removeListener(handleFocusTextField);
     super.dispose();
   }
 
@@ -69,34 +71,52 @@ class _CustomTextFieldState extends State<CustomTextField> {
       data: Theme.of(context).copyWith(
         inputDecorationTheme: const InputDecorationTheme(
           isDense: true,
-          contentPadding: EdgeInsets.only(bottom: 20),
+          contentPadding: EdgeInsets.zero,
           focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: AppColors.neutral500)),
+              borderSide: BorderSide(color: Colors.transparent)),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
           ),
         ),
       ),
-      child: TextFormField(
-        focusNode: focusNode,
-        autocorrect: widget.autoCorrect,
-        obscureText: widget.obscureText,
-        readOnly: widget.readOnly,
-        style: Theme.of(context)
-            .textTheme
-            .bodyText2!
-            .copyWith(color: AppColors.neutral500),
-        decoration: InputDecoration(
-          hintText: widget.hintText,
-          suffixIcon: widget.suffixIcon,
-          prefixIcon: widget.prefixIcon,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          border: isFocusTextField
+              ? const Border(
+                  bottom: BorderSide(color: AppColors.neutral500),
+                )
+              : null,
         ),
-        controller: widget.controller,
-        autofocus: widget.autoFocus,
-        onChanged: widget.onChanged,
-        maxLines: widget.maxLines,
-        textAlignVertical: TextAlignVertical.center,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: TextFormField(
+            focusNode: focusNode,
+            autocorrect: widget.autoCorrect,
+            obscureText: widget.obscureText,
+            readOnly: widget.readOnly,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2!
+                .copyWith(color: AppColors.neutral500),
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              suffixIcon: widget.suffixIcon,
+              prefixIcon: widget.prefixIcon,
+            ),
+            controller: widget.controller,
+            autofocus: widget.autoFocus,
+            onChanged: widget.onChanged,
+            maxLines: widget.maxLines,
+            textAlignVertical: TextAlignVertical.center,
+          ),
+        ),
       ),
     );
+  }
+
+  void handleFocusTextField() {
+    setState(() {
+      isFocusTextField = focusNode.hasFocus;
+    });
   }
 }

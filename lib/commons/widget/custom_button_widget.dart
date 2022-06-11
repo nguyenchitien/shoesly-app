@@ -43,9 +43,10 @@ class CustomButtonWidget extends StatelessWidget {
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
-            side: BorderSide(color: borderColor, width: 2),
+            side: BorderSide(color: borderColor, width: 1),
           ),
         ),
+        elevation: MaterialStateProperty.all<double>(0.0),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

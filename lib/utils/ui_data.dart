@@ -12,4 +12,5 @@ class UIData {
 
   static const viewPasswordIcon = "$_imageDir/view-icon.png";
   static const welcomeToIcon = "$_imageDir/welcome-to-icon.png";
+  static const splashScreenIcon = "$_imageDir/logo_splash_screen.png";
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/widget/custom_button_widget.dart';
 import 'package:shoesly/commons/widget/custom_space.dart';
+import 'package:shoesly/modules/authen/utils/AppStateMixin.dart';
 import 'package:shoesly/themes/app_colors.dart';
 import 'package:shoesly/utils/ui_data.dart';
 
@@ -11,7 +12,7 @@ class WelcomePage extends StatefulWidget {
   State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class _WelcomePageState extends State<WelcomePage> with AppStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +36,14 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               const VerticalSpace(20),
               Text(
-                "Your account has ben successfully!",
+                "Your account has been created successfully!",
                 style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
               CustomButtonWidget(
                 title: "Let’s Search Shoes!",
-                onPressed: () {},
+                onPressed: gotoDashBoard,
               ),
               const VerticalSpace(20),
             ],
