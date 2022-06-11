@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shoesly/blocs/app_state_bloc.dart';
 import 'package:shoesly/blocs/bloc_provider.dart';
-import 'package:shoesly/router/router_name.dart';
+import 'package:shoesly/config/router/router_name.dart';
 
 mixin AppStateMixin<T extends StatefulWidget> on State<T> {
   late final AppStateBloc appStateBloc = BlocProvider.of(context);

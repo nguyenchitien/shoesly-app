@@ -8,8 +8,8 @@ import 'package:shoesly/commons/widget/custom_text_field.dart';
 import 'package:shoesly/commons/widget/default_app_bar.dart';
 import 'package:shoesly/commons/widget/input_row_widget.dart';
 import 'package:shoesly/commons/widget/remove_scroll_grow.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
 import 'package:shoesly/modules/authen/widgets/social_buttons.dart';
-import 'package:shoesly/themes/app_colors.dart';
 import 'package:shoesly/utils/ui_data.dart';
 
 class SignUpPage extends StatefulWidget {

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shoesly/themes/app_colors.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
   final Widget? prefix;
   final Widget? prefixIcon;
   final Widget? suffix;
   final Widget? suffixIcon;
-  final EdgeInsets? padding;
   final String? hintText;
   final bool autoCorrect;
-  final double? spacing;
-  final EdgeInsets? margin;
   final double? borderRadius;
   final TextEditingController? controller;
   final bool autoFocus;
@@ -18,24 +15,17 @@ class CustomTextField extends StatefulWidget {
   final int maxLines;
   final bool obscureText;
   final String? error;
-  final bool enableBorder;
   final FocusNode? focusNode;
   final Border? border;
   final bool readOnly;
+  final TextStyle? hintTextStyle;
+  final bool enableFocusBorder;
 
   const CustomTextField({
     Key? key,
     this.prefixIcon,
     this.suffixIcon,
-    this.padding,
     this.hintText,
-    this.spacing,
-    this.margin,
-    this.autoCorrect = true,
-    this.autoFocus = false,
-    this.obscureText = false,
-    this.enableBorder = true,
-    this.readOnly = false,
     this.borderRadius,
     this.controller,
     this.onChanged,
@@ -45,6 +35,12 @@ class CustomTextField extends StatefulWidget {
     this.border,
     this.prefix,
     this.suffix,
+    this.hintTextStyle,
+    this.autoCorrect = true,
+    this.autoFocus = false,
+    this.obscureText = false,
+    this.readOnly = false,
+    this.enableFocusBorder = true,
   }) : super(key: key);
 
   @override
@@ -71,50 +67,52 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(
-        inputDecorationTheme: const InputDecorationTheme(
-          isDense: true,
-          contentPadding: EdgeInsets.zero,
-          focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent)),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent),
-          ),
-        ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        border: isFocusTextField && widget.enableFocusBorder
+            ? const Border(bottom: BorderSide(color: AppColors.neutral500))
+            : null,
       ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          border: isFocusTextField
-              ? const Border(
-                  bottom: BorderSide(color: AppColors.neutral500),
-                )
-              : null,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: TextFormField(
-            focusNode: focusNode,
-            autocorrect: widget.autoCorrect,
-            obscureText: widget.obscureText,
-            readOnly: widget.readOnly,
-            style: Theme.of(context)
-                .textTheme
-                .bodyText2!
-                .copyWith(color: AppColors.neutral500),
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              suffix: widget.suffix,
-              prefix: widget.prefix,
-              prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon,
+      child: Padding(
+        padding: EdgeInsets.only(bottom: widget.enableFocusBorder ? 20 : 0),
+        child: TextFormField(
+          focusNode: focusNode,
+          autocorrect: widget.autoCorrect,
+          obscureText: widget.obscureText,
+          readOnly: widget.readOnly,
+          style: Theme.of(context)
+              .textTheme
+              .bodyText2!
+              .copyWith(color: AppColors.neutral500),
+          decoration: InputDecoration(
+            isDense: true,
+            contentPadding: EdgeInsets.zero,
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent),
             ),
-            controller: widget.controller,
-            autofocus: widget.autoFocus,
-            onChanged: widget.onChanged,
-            maxLines: widget.maxLines,
-            textAlignVertical: TextAlignVertical.center,
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent),
+            ),
+            hintText: widget.hintText,
+            suffix: widget.suffix,
+            prefix: widget.prefix,
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+            prefixIconConstraints:
+                const BoxConstraints(minWidth: 32, minHeight: 32),
+            suffixIconConstraints:
+                const BoxConstraints(minWidth: 32, minHeight: 32),
+            hintStyle: widget.hintTextStyle ??
+                Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(color: AppColors.neutral500),
           ),
+          controller: widget.controller,
+          autofocus: widget.autoFocus,
+          onChanged: widget.onChanged,
+          maxLines: widget.maxLines,
+          textAlignVertical: TextAlignVertical.center,
         ),
       ),
     );

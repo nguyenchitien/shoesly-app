@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/widget/rounded_icon_button.dart';
-import 'package:shoesly/themes/app_colors.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
 
 class DefaultAppBar extends StatelessWidget {
   final Function() onBackPressed;

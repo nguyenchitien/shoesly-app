@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shoesly/themes/app_colors.dart';
-import 'package:shoesly/themes/styles_text.dart';
-import 'package:shoesly/themes/theme_text.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
+import 'package:shoesly/config/themes/styles_text.dart';
+import 'package:shoesly/config/themes/theme_text.dart';
 
 final ThemeData kLightTheme = ThemeData(
   fontFamily: FontFamily.openSans,

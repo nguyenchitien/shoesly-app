@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
 import 'package:shoesly/modules/authen/models/onboard_slider_item.dart';
-import 'package:shoesly/themes/app_colors.dart';
 
 class SliderItemWidget extends StatelessWidget {
   final SliderItem item;

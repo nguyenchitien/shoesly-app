@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/mixin/app_state_mixin.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
 import 'package:shoesly/modules/authen/utils/authen_constants.dart';
 import 'package:shoesly/modules/authen/widgets/slider_item_widget.dart';
-import 'package:shoesly/themes/app_colors.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class OnBoardPage extends StatefulWidget {

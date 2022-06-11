@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shoesly/themes/app_colors.dart';
-import 'package:shoesly/themes/styles_text.dart';
+import 'package:shoesly/config/themes/app_colors.dart';
+import 'package:shoesly/config/themes/styles_text.dart';
 
 class ThemeText {
   ThemeText._();
