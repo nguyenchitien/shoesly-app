@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shoesly/themes/app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
+  final Widget? prefix;
   final Widget? prefixIcon;
+  final Widget? suffix;
   final Widget? suffixIcon;
   final EdgeInsets? padding;
   final String? hintText;
@@ -41,6 +43,8 @@ class CustomTextField extends StatefulWidget {
     this.error,
     this.focusNode,
     this.border,
+    this.prefix,
+    this.suffix,
   }) : super(key: key);
 
   @override
@@ -88,7 +92,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : null,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 12),
+          padding: const EdgeInsets.only(bottom: 20),
           child: TextFormField(
             focusNode: focusNode,
             autocorrect: widget.autoCorrect,
@@ -100,8 +104,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 .copyWith(color: AppColors.neutral500),
             decoration: InputDecoration(
               hintText: widget.hintText,
-              suffixIcon: widget.suffixIcon,
+              suffix: widget.suffix,
+              prefix: widget.prefix,
               prefixIcon: widget.prefixIcon,
+              suffixIcon: widget.suffixIcon,
             ),
             controller: widget.controller,
             autofocus: widget.autoFocus,

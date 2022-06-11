@@ -41,7 +41,6 @@ class AppStateBloc extends BlocBase {
   }
 
   void _changeAppState(AppState state) {
-    print("change app state $state");
     _appState.sink.add(state);
   }
 

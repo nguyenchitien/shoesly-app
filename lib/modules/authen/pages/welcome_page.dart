@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shoesly/commons/mixin/app_state_mixin.dart';
 import 'package:shoesly/commons/widget/custom_button_widget.dart';
 import 'package:shoesly/commons/widget/custom_space.dart';
-import 'package:shoesly/modules/authen/utils/AppStateMixin.dart';
 import 'package:shoesly/themes/app_colors.dart';
 import 'package:shoesly/utils/ui_data.dart';
 

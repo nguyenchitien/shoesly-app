@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoesly/modules/onboard/models/slider_item.dart';
+import 'package:shoesly/modules/authen/models/onboard_slider_item.dart';
 import 'package:shoesly/themes/app_colors.dart';
 
 class SliderItemWidget extends StatelessWidget {

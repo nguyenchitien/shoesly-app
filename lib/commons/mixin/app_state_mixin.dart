@@ -11,8 +11,15 @@ mixin AppStateMixin<T extends StatefulWidget> on State<T> {
   }
 
   void gotoSignUpPage() {
-    Navigator.pushNamedAndRemoveUntil(
-        context, RouterNames.signUp, (route) => false);
+    Navigator.pushNamed(context, RouterNames.signUp);
+  }
+
+  void gotoSignInPage() {
+    Navigator.pop(context);
+  }
+
+  void notifyFirstLauncherApp() async {
+    await appStateBloc.notifyFirstLauncherApp();
   }
 
   void handleSignIn() {
@@ -20,7 +27,6 @@ mixin AppStateMixin<T extends StatefulWidget> on State<T> {
   }
 
   void handleSignUp() {
-    Navigator.pushNamedAndRemoveUntil(
-        context, RouterNames.welcome, (route) => false);
+    gotoSignInPage();
   }
 }

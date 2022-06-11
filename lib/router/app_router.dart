@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/commons/page_not_found.dart';
+import 'package:shoesly/modules/authen/pages/onboard_page.dart';
 import 'package:shoesly/modules/authen/pages/sign_in_page.dart';
 import 'package:shoesly/modules/authen/pages/sign_up_page.dart';
 import 'package:shoesly/modules/authen/pages/welcome_page.dart';
 import 'package:shoesly/modules/dashboard/pages/dashboard_page.dart';
-import 'package:shoesly/modules/onboard/pages/onboard_page.dart';
 import 'package:shoesly/router/router_name.dart';
 
 class AppRouter {

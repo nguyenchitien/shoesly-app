@@ -1,12 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shoesly/commons/mixin/app_state_mixin.dart';
 import 'package:shoesly/commons/widget/auto_hide_keyboard.dart';
 import 'package:shoesly/commons/widget/custom_button_widget.dart';
 import 'package:shoesly/commons/widget/custom_space.dart';
 import 'package:shoesly/commons/widget/custom_text_field.dart';
 import 'package:shoesly/commons/widget/input_row_widget.dart';
 import 'package:shoesly/commons/widget/remove_scroll_grow.dart';
-import 'package:shoesly/modules/authen/utils/AppStateMixin.dart';
+import 'package:shoesly/modules/authen/widgets/social_buttons.dart';
 import 'package:shoesly/themes/app_colors.dart';
 import 'package:shoesly/utils/ui_data.dart';
 
@@ -20,12 +21,13 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> with AppStateMixin {
   @override
   Widget build(BuildContext context) {
-    final double spaceSize = MediaQuery.of(context).size.height * 0.25;
+    final isKeyBoardShowing = MediaQuery.of(context).viewInsets.bottom > 0;
+    final double spaceSize =
+        isKeyBoardShowing ? 40 : MediaQuery.of(context).size.height * 0.25;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: AutoHideKeyboard(
         child: SafeArea(
-          bottom: false,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: RemoveScrollGrow(
@@ -54,7 +56,7 @@ class _SignInPageState extends State<SignInPage> with AppStateMixin {
                     textFormField: CustomTextField(
                       hintText: "Enter your password",
                       obscureText: true,
-                      suffixIcon: Image.asset(
+                      suffix: Image.asset(
                         UIData.viewPasswordIcon,
                         width: 20,
                         height: 20,
@@ -72,35 +74,7 @@ class _SignInPageState extends State<SignInPage> with AppStateMixin {
                           onPressed: handleSignIn,
                         ),
                         const VerticalSpace(20),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CustomButtonWidget(
-                                onPressed: () {},
-                                icon: Image.asset(
-                                  UIData.googleIcon,
-                                  width: 20,
-                                  height: 20,
-                                ),
-                                title: "Google",
-                                type: ButtonType.secondary,
-                              ),
-                            ),
-                            const HorizontalSpace(15),
-                            Expanded(
-                              child: CustomButtonWidget(
-                                onPressed: () {},
-                                icon: Image.asset(
-                                  UIData.facebookIcon,
-                                  width: 20,
-                                  height: 20,
-                                ),
-                                title: "Facebook",
-                                type: ButtonType.secondary,
-                              ),
-                            ),
-                          ],
-                        ),
+                        const SocialButtons(),
                         const VerticalSpace(20),
                         RichText(
                           text: TextSpan(
